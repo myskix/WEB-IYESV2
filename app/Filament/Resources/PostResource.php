@@ -33,7 +33,7 @@ class PostResource extends Resource
 {
     protected static ?string $model = Post::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-newspaper';
 
     public static function form(Form $form): Form
     {
@@ -71,7 +71,7 @@ class PostResource extends Resource
                             ->label('Gambar Utama')
                             ->image()
                             ->directory('posts/thumbnails')
-                            ->maxSize(10240)
+                            ->maxSize(5240)
                             ->imageEditor()
                             ->imageResizeMode('cover')
                             ->imageCropAspectRatio('16:9')

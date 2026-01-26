@@ -38,6 +38,7 @@ class PostController extends Controller
             });
         }
 
+
         $posts = $query->paginate(9)->appends(request()->query());
 
 

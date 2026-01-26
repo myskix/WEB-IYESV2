@@ -24,7 +24,7 @@ class AnnualReportResource extends Resource
 {
     protected static ?string $model = AnnualReport::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-document-chart-bar';
 
     public static function form(Form $form): Form
     {

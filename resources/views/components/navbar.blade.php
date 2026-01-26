@@ -8,7 +8,7 @@
             
             <a href="/" class="flex-shrink-0 flex items-center gap-3 group relative z-50">
                 <img src="{{ asset('images/logo-iyes.svg') }}" 
-                     class="h-10 w-auto object-contain transition-transform group-hover:scale-105" 
+                     class="h-10 w-auto object-contain " 
                      alt="IYES Logo"
                      onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
 
@@ -38,7 +38,7 @@
                         <div class="bg-white rounded-xl shadow-xl ring-1 ring-black/5 p-2 overflow-hidden border border-slate-100">
                             
                             {{-- 1. Profil Organisasi --}}
-                            <a href="{{ route('pages.about') }}" class="flex items-start gap-3 p-3 rounded-lg hover:bg-slate-50 transition-colors group/item">
+                            <a href="{{ route('pages.about') }}" wire:navigate class="flex items-start gap-3 p-3 rounded-lg hover:bg-slate-50 transition-colors group/item">
                                 <div class="w-8 h-8 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center group-hover/item:bg-blue-600 group-hover/item:text-white transition-colors">
                                     <i class="fas fa-building text-xs"></i>
                                 </div>
@@ -141,7 +141,7 @@
                 
 
                 {{-- Kontak --}}
-                <a href="{{ route('pages.contact') }}" class="ml-4 px-6 py-2.5 text-sm font-bold text-white bg-iyes-primary rounded-full hover:bg-slate-800 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 shadow-md shadow-blue-900/20">
+                <a href="{{ route('pages.contact') }}" wire:navigate class="ml-4 px-6 py-2.5 text-sm font-bold text-white bg-iyes-primary rounded-full hover:bg-slate-800 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 shadow-md shadow-blue-900/20">
                     Hubungi Kami
                 </a>
             </div>
@@ -170,25 +170,51 @@
         <div class="px-6 py-6 space-y-4">
             <a href="/" class="block text-base font-bold text-iyes-accent">Beranda</a>
             
+            {{-- Tentang Kami --}}
             <div x-data="{ open: false }">
                 <button @click="open = !open" class="flex w-full justify-between items-center text-base font-bold text-slate-600">
                     Tentang Kami
                     <svg :class="open ? 'rotate-180' : ''" class="w-4 h-4 transition-transform text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                 </button>
                 <div x-show="open" x-collapse class="mt-2 pl-4 border-l-2 border-gray-100 space-y-3">
-                     <a href="" class="block text-sm font-medium text-slate-500 hover:text-iyes-accent">Struktur Pengurus</a>
-                     <a href="#" class="block text-sm font-medium text-slate-500 hover:text-iyes-accent">Profil Organisasi</a>
+                     <a href="{{ route('board-members.index') }}" class="block text-sm font-medium text-slate-500 hover:text-iyes-accent">Struktur Pengurus</a>
+                     <a href="{{ route('pages.about') }}" class="block text-sm font-medium text-slate-500 hover:text-iyes-accent">Profil Organisasi</a>
                 </div>
             </div>
 
-            <a href="#programs" class="block text-base font-bold text-slate-600 hover:text-iyes-accent">Program</a>
-            <a href="#news" class="block text-base font-bold text-slate-600 hover:text-iyes-accent">Media & Update</a>
+            {{-- Program --}}
+            <div x-data="{ open: false }">
+                <button @click="open = !open" class="flex w-full justify-between items-center text-base font-bold text-slate-600">
+                    Program
+                    <svg :class="open ? 'rotate-180' : ''" class="w-4 h-4 transition-transform text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div x-show="open" x-collapse class="mt-2 pl-4 border-l-2 border-gray-100 space-y-3">
+                     <a href="{{ route('programs.index') }}" class="block text-sm font-medium text-slate-500 hover:text-iyes-accent">Semua Program</a>
+                </div>
+            </div>
+
+            {{-- Media --}}
+            <div x-data="{ open: false }">
+                <button @click="open = !open" class="flex w-full justify-between items-center text-base font-bold text-slate-600">
+                    Media
+                    <svg :class="open ? 'rotate-180' : ''" class="w-4 h-4 transition-transform text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div x-show="open" x-collapse class="mt-2 pl-4 border-l-2 border-gray-100 space-y-3">
+                     <a href="{{ route('posts.index') }}" class="block text-sm font-medium text-slate-500 hover:text-iyes-accent">Berita</a>
+                     <a href="{{ route('annual-report.index') }}" class="block text-sm font-medium text-slate-500 hover:text-iyes-accent">Annual Report</a>
+                </div>
+            </div>
+
+            {{-- Mitra --}}
+            <a href="{{ route('pages.partnership') }}" class="block text-base font-bold text-iyes-accent">Mitra</a>
+            
             
             <div class="pt-6 border-t border-gray-100">
-                <a href="#" class="block w-full text-center py-3 bg-iyes-primary text-white font-bold rounded-lg shadow-md">
+                <a href="{{ route('pages.contact') }}" class="block w-full text-center py-3 bg-iyes-primary text-white font-bold rounded-lg shadow-md">
                     Hubungi Kami
                 </a>
             </div>
+
         </div>
     </div>
 </nav>

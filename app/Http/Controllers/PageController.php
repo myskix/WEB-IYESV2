@@ -12,7 +12,6 @@ class PageController extends Controller
 {
     public function about()
     {
-        // Data SEO bisa disiapkan di sini jika ingin dinamis
         return view('pages.about');
     }
 
@@ -46,9 +45,13 @@ class PageController extends Controller
     {
         // 1. Ambil 3 Berita Terakhir dari Kategori 'kolaborasi'
         // Pastikan Anda sudah membuat kategori dengan slug 'kolaborasi' di CMS
-        $stories = Post::whereHas('category', function ($q) {
-            $q->where('slug', 'kolaborasi');
-        })->latest()->take(3)->get();
+        $stories = Post::with('category')
+            ->whereHas('category', function ($q) {
+                $q->where('slug', 'kolaborasi');
+            })
+            ->latest()
+            ->take(3)
+            ->get();
 
         // 2. Ambil Semua Logo Mitra dari Tabel Partners
         // Urutkan berdasarkan ID atau created_at (jika belum ada sort_order)

@@ -1,35 +1,81 @@
 <x-layout>
+    {{-- 1. META TAGS SEO & SOSMED --}}
+    <x-slot:meta>
+        {{-- SEO Standar --}}
+        <meta name="description" content="IYES Indonesia (Indonesian Youth & Education Society) adalah organisasi kepemudaan yang berfokus pada pemberdayaan pemuda, pendidikan, dan sosial di Riau dan Indonesia.">
+        <meta name="keywords" content="IYES Indonesia, Organisasi Pemuda Riau, Edukasi, Sosial, Volunteer Pekanbaru, Komunitas Pemuda">
+        <meta name="author" content="IYES Indonesia">
+        <meta name="robots" content="index, follow">
+
+        {{-- Open Graph (Agar cantik saat share di WA/FB/IG) --}}
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="{{ url()->current() }}">
+        <meta property="og:title" content="Beranda - IYES INDONESIA">
+        <meta property="og:description" content="Bersama memberdayakan pemuda dan memajukan pendidikan Indonesia. Bergabunglah dengan gerakan kami.">
+        <meta property="og:image" content="{{ asset('images/hero-bg.jpg') }}"> {{-- Ganti dengan path logo/foto banner utama --}}
+    </x-slot:meta>
+
+    {{-- 2. JUDUL TAB BROWSER --}}
     <x-slot:title>Beranda - IYES INDONESIA</x-slot:title>
 
     {{-- Hero Section --}}
+    @php
+    $heroSlides = [
+        [
+            'img' => asset('images/hero-bg.jpg'), 
+            'alt' => 'Kegiatan Pemuda IYES',
+        ],
+        [
+            'img' => asset('images/hero-bg2.jpg'), 
+            'alt' => 'Kolaborasi Internasional',
+        ],
+        [
+            'img' => asset('images/hero-bg3.jpg'), 
+            'alt' => 'Program Edukasi',
+        ],
+    ];
+    @endphp
     <section 
     x-data="{ 
         active: 0, 
-        slides: [
-            { img: '{{ asset('images/hero-bg.jpg') }}', alt: 'Kegiatan Pemuda IYES' },
-            { img: '{{ asset('images/hero-bg2.jpg') }}', alt: 'Kolaborasi Internasional' },
-            { img: '{{ asset('images/hero-bg3.jpg') }}', alt: 'Program Edukasi' }
-        ],
-        timer: null,
-        init() { this.timer = setInterval(() => { this.active = (this.active + 1) % this.slides.length }, 3000) }
+        total: {{ count($heroSlides) }},
+        init() { 
+            setInterval(() => { 
+                this.active = (this.active + 1) % this.total 
+            }, 3000); // Saya ubah ke 5 detik agar tidak terlalu cepat pusing
+        }
     }" 
     class="relative h-screen min-h-[650px] flex items-center bg-iyes-primary overflow-hidden">
 
+    {{-- Background Slider --}}
     <div class="absolute inset-0 z-0">
-        <template x-for="(slide, index) in slides" :key="index">
-            <img :src="slide.img" 
-                 :loading="index === 0 ? 'eager' : 'lazy'"  decoding="async"
-                 x-show="active === index"
+        @foreach($heroSlides as $index => $slide)
+            <img src="{{ $slide['img'] }}" 
+                 alt="{{ $slide['alt'] }}"
+                 {{-- Optimasi Gambar Pertama: Load Prioritas Tinggi --}}
+                 @if($index === 0) 
+                    fetchpriority="high" loading="eager" 
+                 @else 
+                    loading="lazy" 
+                 @endif
+                 
+                 {{-- Logika Tampilan (Alpine) --}}
+                 x-show="active === {{ $index }}"
+                 
+                 {{-- Transisi Halus --}}
                  x-transition:enter="transition ease-out duration-1000"
                  x-transition:enter-start="opacity-0 scale-105"
                  x-transition:enter-end="opacity-100 scale-100"
                  x-transition:leave="transition ease-in duration-1000"
                  x-transition:leave-start="opacity-100 scale-100"
                  x-transition:leave-end="opacity-0 scale-105"
+                 
                  class="absolute inset-0 w-full h-full object-cover object-center"
-                 style="will-change: opacity, transform;"> </template>
+                 style="will-change: opacity, transform;">
+        @endforeach
 
-        <div class="absolute inset-0 bg-gradient-to-r from-iyes-primary/80 via-iyes-primary/60 to-transparent z-10"></div>
+        {{-- Gradient Overlay --}}
+        <div class="absolute inset-0 bg-gradient-to-r from-iyes-primary/90 via-iyes-primary/70 to-transparent z-10 pointer-events-none"></div>
     </div>
 
     <div class="relative z-20 max-w-7xl mx-auto px-6 w-full pt-16">
