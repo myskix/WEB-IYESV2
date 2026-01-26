@@ -34,8 +34,21 @@
                         <svg class="w-3.5 h-3.5 transition-transform duration-300 group-hover:rotate-180 text-gray-400 group-hover:text-iyes-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                     </button>
                     
-                    <div class="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top -translate-y-2 group-hover:translate-y-0 w-64">
-                        <div class="bg-white rounded-xl shadow-xl ring-1 ring-black/5 p-2 overflow-hidden">
+                    <div class="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top -translate-y-2 group-hover:translate-y-0 w-72 z-50">
+                        <div class="bg-white rounded-xl shadow-xl ring-1 ring-black/5 p-2 overflow-hidden border border-slate-100">
+                            
+                            {{-- 1. Profil Organisasi --}}
+                            <a href="{{ route('pages.about') }}" class="flex items-start gap-3 p-3 rounded-lg hover:bg-slate-50 transition-colors group/item">
+                                <div class="w-8 h-8 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center group-hover/item:bg-blue-600 group-hover/item:text-white transition-colors">
+                                    <i class="fas fa-building text-xs"></i>
+                                </div>
+                                <div>
+                                    <span class="block text-sm font-bold text-slate-700">Profil Organisasi</span>
+                                    <span class="block text-xs text-slate-400 mt-0.5">Visi, misi & sejarah</span>
+                                </div>
+                            </a>
+
+                            {{-- 2. Struktur Pengurus --}}
                             <a href="{{ route('board-members.index') }}" class="flex items-start gap-3 p-3 rounded-lg hover:bg-slate-50 transition-colors group/item">
                                 <div class="w-8 h-8 rounded-full bg-orange-50 text-iyes-accent flex items-center justify-center group-hover/item:bg-iyes-accent group-hover/item:text-white transition-colors">
                                     <i class="fas fa-users text-xs"></i>
@@ -45,15 +58,18 @@
                                     <span class="block text-xs text-slate-400 mt-0.5">Kenali tim kami</span>
                                 </div>
                             </a>
-                            <a href="{{ route('about.index') }}" class="flex items-start gap-3 p-3 rounded-lg hover:bg-slate-50 transition-colors group/item">
-                                <div class="w-8 h-8 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center group-hover/item:bg-blue-600 group-hover/item:text-white transition-colors">
-                                    <i class="fas fa-building text-xs"></i>
+
+                            {{-- 3. Cerita Alumni (BARU) --}}
+                            <a href="{{ route('pages.testimonials') }}" class="flex items-start gap-3 p-3 rounded-lg hover:bg-slate-50 transition-colors group/item">
+                                <div class="w-8 h-8 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center group-hover/item:bg-emerald-600 group-hover/item:text-white transition-colors">
+                                    <i class="fas fa-comment-dots text-xs"></i>
                                 </div>
                                 <div>
-                                    <span class="block text-sm font-bold text-slate-700">Profil Organisasi</span>
-                                    <span class="block text-xs text-slate-400 mt-0.5">Visi, misi & sejarah</span>
+                                    <span class="block text-sm font-bold text-slate-700">Cerita Alumni</span>
+                                    <span class="block text-xs text-slate-400 mt-0.5">Testimoni & pengalaman</span>
                                 </div>
                             </a>
+
                         </div>
                     </div>
                 </div>
@@ -119,13 +135,13 @@
 
 
                 {{-- Mitra --}}
-                <a href="#news" class="relative text-sm font-bold text-slate-600 hover:text-iyes-primary transition-colors group">
+                <a href="{{ route('pages.partnership') }}" class="relative text-sm font-bold text-slate-600 hover:text-iyes-primary transition-colors group">
                     Mitra
                     <span class="absolute -bottom-2 left-0 w-0 h-0.5 bg-iyes-accent transition-all duration-300 group-hover:w-full"></span>
-                </a>
+                
 
                 {{-- Kontak --}}
-                <a href="#" class="ml-4 px-6 py-2.5 text-sm font-bold text-white bg-iyes-primary rounded-full hover:bg-slate-800 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 shadow-md shadow-blue-900/20">
+                <a href="{{ route('pages.contact') }}" class="ml-4 px-6 py-2.5 text-sm font-bold text-white bg-iyes-primary rounded-full hover:bg-slate-800 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 shadow-md shadow-blue-900/20">
                     Hubungi Kami
                 </a>
             </div>

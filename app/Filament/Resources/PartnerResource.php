@@ -37,17 +37,6 @@ class PartnerResource extends Resource
                         ->label('Nama Mitra')
                         ->required(),
 
-                    Select::make('type')
-                        ->label('Tipe Kerjasama')
-                        ->options(Partner::TYPES)
-                        ->default('sponsor')
-                        ->required(),
-
-                    TextInput::make('url')
-                        ->label('Website / Link Medsos')
-                        ->url()
-                        ->prefix('https://'),
-
                     // Upload Logo (Optimasi ukuran)
                     FileUpload::make('logo')
                         ->label('Logo Mitra')
@@ -81,19 +70,10 @@ class PartnerResource extends Resource
                     ->searchable()
                     ->weight('bold'),
 
-                TextColumn::make('type')
-                    ->badge()
-                    ->color(fn(string $state): string => match ($state) {
-                        'sponsor' => 'warning',
-                        'media_partner' => 'info',
-                        'government' => 'danger',
-                        default => 'gray',
-                    }),
-
                 ToggleColumn::make('is_visible')->label('Aktif'),
             ])
             ->filters([
-                SelectFilter::make('type')->options(Partner::TYPES),
+                // 
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),

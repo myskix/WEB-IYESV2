@@ -19,7 +19,6 @@ class Testimonial extends Model
     public const CATEGORIES = [
         'Alumni IYES' => 'Alumni IYES',
         'Volunteer' => 'Volunteer',
-        'Pengurus' => 'Pengurus / Board',
         'Masyarakat' => 'Masyarakat Umum',
     ];
 }

@@ -52,6 +52,13 @@ class PostResource extends Resource
                             ->required()
                             ->unique(ignoreRecord: true),
 
+                        TextInput::make('external_link')
+                            ->label('Link Eksternal / YouTube')
+                            ->helperText('Abaikan Jika Artikel Tulisan Sendiri')
+                            ->url()
+                            ->placeholder('https://youtube.com/... atau https://detik.com/...')
+                            ->columnSpanFull(),
+
                         RichEditor::make('content')
                             ->label('Isi Berita')
                             ->required()
@@ -59,7 +66,6 @@ class PostResource extends Resource
                             ->columnSpanFull(),
                     ])->columnSpan(2),
 
-                    // KOLOM KANAN (Meta Data) - Mengambil 1 grid
                     Section::make('Meta Data')->schema([
                         FileUpload::make('thumbnail')
                             ->label('Gambar Utama')
