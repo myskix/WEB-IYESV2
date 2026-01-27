@@ -56,9 +56,9 @@
                                     <div class="mt-auto pt-4 border-t border-slate-50 flex justify-between items-center">
                                         <div class="flex items-center gap-2">
                                             <div class="w-6 h-6 rounded-full bg-slate-200 overflow-hidden">
-                                                <img src="https://ui-avatars.com/api/?name={{ urlencode($post->author->name) }}&background=random" alt="Author">
+                                                <img src="https://ui-avatars.com/api/?name={{ urlencode($post->author) }}&background=random" alt="Author">
                                             </div>
-                                            <span class="text-xs text-slate-500 font-medium">{{ Str::limit($post->author->name, 10) }}</span>
+                                            <span class="text-xs text-slate-500 font-medium">{{ Str::limit($post->author, 10) }}</span>
                                         </div>
                                         <a href="{{ route('posts.show', $post->slug) }}" class="text-xs font-bold text-iyes-accent hover:underline">
                                             Baca →

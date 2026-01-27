@@ -88,6 +88,13 @@ class PostResource extends Resource
                                 TextInput::make('slug')->required(),
                             ]),
 
+                        TextInput::make('author')
+                            ->helperText('Skip Jika Bukan Artikel')
+                            ->label('Nama Author')
+                            ->placeholder('Contoh: Tim Redaksi IYES')
+                            ->columnSpanFull(),
+
+
                         Select::make('tags')
                             ->label('Tags')
                             ->relationship('tags', 'name')

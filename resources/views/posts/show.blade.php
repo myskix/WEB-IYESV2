@@ -7,6 +7,13 @@
         {{ Str::limit(strip_tags($post->content), 150) }}
     </x-slot:meta_description>
 
+
+    <style>
+        .prose p {
+            text-align: justify;
+        }
+    </style>
+
     <div class="fixed top-0 left-0 h-1.5 bg-iyes-accent z-[100]" id="progressBar" style="width: 0%"></div>
 
     <article class="bg-white min-h-screen pt-24 pb-16">
@@ -26,10 +33,12 @@
 
             <div class="flex items-center justify-center gap-4">
                 <div class="w-12 h-12 rounded-full bg-slate-200 overflow-hidden border-2 border-white shadow-sm">
-                    <img src="https://ui-avatars.com/api/?name={{ urlencode($post->author->name) }}&background=0F172A&color=fff" alt="{{ $post->author->name }}">
+                    <img src="https://ui-avatars.com/api/?name={{ urlencode($post->author) }}&background=0F172A&color=fff" alt="{{ $post->author }}">
                 </div>
                 <div class="text-left">
-                    <p class="text-sm font-bold text-slate-800">{{ $post->author->name }}</p>
+                    <p class="text-sm font-bold text-slate-800">
+                        {{ $post->author ?? 'Tim Redaksi IYES' }}
+                    </p>
                     <p class="text-xs text-slate-500 font-medium">Tim Redaksi IYES</p>
                 </div>
             </div>

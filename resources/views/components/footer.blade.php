@@ -19,7 +19,7 @@
                         </div>
                         <div class="text-sm">
                             <p class="text-xs text-slate-500 font-bold uppercase">Email</p>
-                            <a href="mailto:indonesianyouthex@gmail.com" class="text-slate-300 hover:text-white transition-colors">indonesianyouthex@gmail.com</a>
+                            <a href="mailto:indonesianyouthex@gmail.com" class="text-slate-300 hover:text-white transition-colors">indonesianyouth.es@gmail.com</a>
                         </div>
                     </div>
 
@@ -29,8 +29,8 @@
                         </div>
                         <div class="text-sm">
                             <p class="text-xs text-slate-500 font-bold uppercase">Telepon / WhatsApp</p>
-                            <p class="text-slate-300 hover:text-white transition-colors">+62 812-692-4248 (Vira)</p>
-                            <p class="text-slate-300 hover:text-white transition-colors">+62 895-6022-31363 (Nabila)</p>
+                            <p class="text-slate-300 hover:text-white transition-colors">+62 812-6861-8248 (Yara)</p>
+                            <p class="text-slate-300 hover:text-white transition-colors">+62 895-6022-84363 (Nabila)</p>
                         </div>
                     </div>
                 </div>
@@ -42,11 +42,11 @@
                 </h4>
                 <ul class="space-y-3 text-sm">
                     <li><a href="/" class="block text-slate-400 hover:text-iyes-accent hover:translate-x-1 transition-all duration-300">Beranda</a></li>
-                    <li><a href="#" class="block text-slate-400 hover:text-iyes-accent hover:translate-x-1 transition-all duration-300">Tentang Kami</a></li>
-                    <li><a href="#programs" class="block text-slate-400 hover:text-iyes-accent hover:translate-x-1 transition-all duration-300">Program</a></li>
-                    <li><a href="#news" class="block text-slate-400 hover:text-iyes-accent hover:translate-x-1 transition-all duration-300">Berita & Artikel</a></li>
-                    <li><a href="#news" class="block text-slate-400 hover:text-iyes-accent hover:translate-x-1 transition-all duration-300">Mitra</a></li>
-                    <li><a href="#" class="block text-slate-400 hover:text-iyes-accent hover:translate-x-1 transition-all duration-300">Hubungi Kami</a></li>
+                    <li><a href="{{ route('pages.about') }}" class="block text-slate-400 hover:text-iyes-accent hover:translate-x-1 transition-all duration-300">Tentang Kami</a></li>
+                    <li><a href="{{ route('programs.index') }}" class="block text-slate-400 hover:text-iyes-accent hover:translate-x-1 transition-all duration-300">Program</a></li>
+                    <li><a href="{{ route('posts.index') }}" class="block text-slate-400 hover:text-iyes-accent hover:translate-x-1 transition-all duration-300">Berita & Artikel</a></li>
+                    <li><a href="{{ route('pages.partnership') }}" class="block text-slate-400 hover:text-iyes-accent hover:translate-x-1 transition-all duration-300">Mitra</a></li>
+                    <li><a href="{{ route('pages.contact') }}" class="block text-slate-400 hover:text-iyes-accent hover:translate-x-1 transition-all duration-300">Hubungi Kami</a></li>
                 </ul>
             </div>
 
@@ -55,9 +55,9 @@
                     <span class="w-8 h-0.5 bg-iyes-accent rounded-full"></span> Dukungan
                 </h4>
                 <ul class="space-y-3 text-sm">
-                    <li><a href="#" class="block text-slate-400 hover:text-iyes-accent hover:translate-x-1 transition-all duration-300">Donasi</a></li>
-                    <li><a href="#" class="block text-slate-400 hover:text-iyes-accent hover:translate-x-1 transition-all duration-300">Jadi Volunteer</a></li>
-                    <li><a href="#" class="block text-slate-400 hover:text-iyes-accent hover:translate-x-1 transition-all duration-300">FAQ</a></li>
+                    {{-- <li><a href="#" class="block text-slate-400 hover:text-iyes-accent hover:translate-x-1 transition-all duration-300">Donasi</a></li> --}}
+                    <li><a href="{{ route('pages.contact') }}" class="block text-slate-400 hover:text-iyes-accent hover:translate-x-1 transition-all duration-300">Jadi Volunteer</a></li>
+                    <li><a href="{{ route('pages.contact') }}" class="block text-slate-400 hover:text-iyes-accent hover:translate-x-1 transition-all duration-300">FAQ</a></li>
                     <li><a href="#" class="block text-slate-400 hover:text-iyes-accent hover:translate-x-1 transition-all duration-300">Syarat & Ketentuan</a></li>
                     <li><a href="#" class="block text-slate-400 hover:text-iyes-accent hover:translate-x-1 transition-all duration-300">Kebijakan Privasi</a></li>
                 </ul>
@@ -74,13 +74,13 @@
                     <a href="https://instagram.com/iyesindonesia" target="_blank" class="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-gradient-to-br hover:from-purple-600 hover:to-pink-500 hover:text-white hover:-translate-y-1 hover:shadow-lg hover:shadow-purple-500/30 transition-all duration-300">
                         <i class="fab fa-instagram text-lg"></i>
                     </a>
-                    <a href="#" target="_blank" class="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-black hover:text-white hover:-translate-y-1 hover:shadow-lg hover:shadow-gray-700/30 transition-all duration-300">
+                    <a href="https://www.tiktok.com/@iyesindonesia" target="_blank" class="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-black hover:text-white hover:-translate-y-1 hover:shadow-lg hover:shadow-gray-700/30 transition-all duration-300">
                         <i class="fab fa-tiktok text-lg"></i>
                     </a>
-                    <a href="#" target="_blank" class="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-[#0077b5] hover:text-white hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-600/30 transition-all duration-300">
+                    <a href="https://www.linkedin.com/in/iyes-indonesia-274414237/" target="_blank" class="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-[#0077b5] hover:text-white hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-600/30 transition-all duration-300">
                         <i class="fab fa-linkedin-in text-lg"></i>
                     </a>
-                    <a href="#" target="_blank" class="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-red-600 hover:text-white hover:-translate-y-1 hover:shadow-lg hover:shadow-red-600/30 transition-all duration-300">
+                    <a href="https://www.youtube.com/@iyesindonesia3804" target="_blank" class="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-red-600 hover:text-white hover:-translate-y-1 hover:shadow-lg hover:shadow-red-600/30 transition-all duration-300">
                         <i class="fab fa-youtube text-lg"></i>
                     </a>
                 </div>

@@ -4,7 +4,7 @@
         <h1 class="text-9xl font-extrabold text-slate-200">404</h1>
         <h2 class="text-2xl font-bold text-iyes-primary mt-4">Ups! Halaman tidak ditemukan.</h2>
         <p class="text-slate-500 mt-2 mb-8">Mungkin link rusak atau halaman sudah dipindahkan.</p>
-        <a href="{{ route('pages.home') }}" class="px-6 py-3 bg-iyes-accent text-white rounded-full font-bold hover:bg-orange-600 transition">
+        <a href="{{ route('pages.contact') }}" class="px-6 py-3 bg-iyes-accent text-white rounded-full font-bold hover:bg-orange-600 transition">
             Kembali ke Beranda
         </a>
     </div>
