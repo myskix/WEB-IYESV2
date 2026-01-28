@@ -520,7 +520,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
-                    <div x-show="selected === 1" x-collapse
+                    <div x-show="selected === 1" 
                         class="px-5 pb-5 text-slate-600 text-sm leading-relaxed border-t border-slate-50">
                         Anda bisa mendaftar melalui halaman detail program saat statusnya "Open Registration". Klik
                         tombol daftar dan isi formulir yang tersedia.
@@ -538,7 +538,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
-                    <div x-show="selected === 2" x-collapse
+                    <div x-show="selected === 2" 
                         class="px-5 pb-5 text-slate-600 text-sm leading-relaxed border-t border-slate-50">
                         Ada program yang Fully Funded (Gratis) melalui seleksi beasiswa, dan ada jalur Self-Funded.
                         Detailnya tertera di tiap panduan program.
@@ -555,7 +555,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
-                    <div x-show="selected === 5" x-collapse
+                    <div x-show="selected === 5" 
                         class="px-5 pb-5 text-slate-600 text-sm leading-relaxed border-t border-slate-50">
                         Ikuti akun resmi IYES di media sosial atau kunjungi halaman Berita di website untuk update terbaru.
                     </div>
@@ -571,7 +571,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
-                    <div x-show="selected === 4" x-collapse
+                    <div x-show="selected === 4" 
                         class="px-5 pb-5 text-slate-600 text-sm leading-relaxed border-t border-slate-50">
                         Ya, kami terbuka untuk kolaborasi. Silakan hubungi tim kami melalui halaman "Hubungi Kami" untuk informasi lebih lanjut.
                     </div>

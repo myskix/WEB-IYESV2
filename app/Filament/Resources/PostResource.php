@@ -52,8 +52,17 @@ class PostResource extends Resource
                             ->required()
                             ->unique(ignoreRecord: true),
 
+                        Select::make('category_id')
+                            ->label('Kategori')
+                            ->relationship('category', 'name')
+                            ->required()
+                            ->createOptionForm([ // Fitur Quick Create Category
+                                TextInput::make('name')->required(),
+                                TextInput::make('slug')->required(),
+                            ]),
+
                         TextInput::make('external_link')
-                            ->label('Link Eksternal / YouTube')
+                            ->label('Link Eksternal (Kolaborasi, Berita, dll)')
                             ->helperText('Abaikan Jika Artikel Tulisan Sendiri')
                             ->url()
                             ->placeholder('https://youtube.com/... atau https://detik.com/...')
@@ -78,15 +87,6 @@ class PostResource extends Resource
                             ->imageResizeTargetWidth('1280')
                             ->imageResizeTargetHeight('720')
                             ->required(),
-
-                        Select::make('category_id')
-                            ->label('Kategori')
-                            ->relationship('category', 'name')
-                            ->required()
-                            ->createOptionForm([ // Fitur Quick Create Category
-                                TextInput::make('name')->required(),
-                                TextInput::make('slug')->required(),
-                            ]),
 
                         TextInput::make('author')
                             ->helperText('Skip Jika Bukan Artikel')

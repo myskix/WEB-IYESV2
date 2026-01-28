@@ -22,7 +22,7 @@ class ProgramEdition extends Model
         'achievements',
         'gallery',
         'thumbnail',
-
+        'location_map',
     ];
 
     protected $casts = [

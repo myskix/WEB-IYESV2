@@ -38,6 +38,13 @@ class EditionsRelationManager extends RelationManager
                     ->label('Cerita/Deskripsi Edisi Ini')
                     ->columnSpanFull(),
 
+                Textarea::make('location_map')
+                    ->label('Embed Google Maps (HTML)')
+                    ->rows(5)
+                    ->placeholder('<iframe src="https://www.google.com/maps/embed?..." ...></iframe>')
+                    ->helperText('Cara ambil: Buka Google Maps > Pilih Lokasi > Share > Embed a map > Copy HTML.')
+                    ->columnSpanFull(),
+
                 // 2. Capaian Utama (Repeater)
                 Repeater::make('achievements')
                     ->label('Capaian Utama (Key Highlights)')

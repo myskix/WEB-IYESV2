@@ -30,6 +30,8 @@
         </div>
     </section>
 
+    
+
     <div class="bg-slate-50 min-h-screen py-16">
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12">
 
@@ -79,6 +81,59 @@
                         @endforeach
                     </div>
                 </div>
+                @endif
+
+                {{-- MAPS --}}
+                @if($edition->location_map)
+                    <div class="mt-8 mb-12">
+                        
+                        {{-- 1. Header Bagian Peta --}}
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="p-3 bg-red-50 rounded-full text-red-500">
+                                {{-- Icon Pin Peta (SVG) --}}
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                                    <path fill-rule="evenodd" d="M11.54 22.351l.07.04.028.016a.76.76 0 00.723 0l.028-.015.071-.041a16.975 16.975 0 001.144-.742 19.58 19.58 0 002.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 00-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 002.682 2.282 16.975 16.975 0 001.145.742zM12 13.5a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-slate-800">Lokasi Kegiatan</h4>
+                                <p class="text-sm text-slate-500">Tempat pelaksanaan {{ $edition->name ?? 'Batch ini' }}</p>
+                            </div>
+                        </div>
+
+                        {{-- 2. Container Peta (Card Style) --}}
+                        <div class="group relative w-full rounded-3xl overflow-hidden shadow-lg border-4 border-white bg-slate-100 ring-1 ring-slate-900/5">
+                            
+                            {{-- Aspect Ratio Wrapper (Agar Responsif 16:9 di semua layar) --}}
+                            <div class="relative w-full aspect-video md:aspect-[21/9]">
+                                {{-- 
+                                    Trik Magic:
+                                    Kita ganti paksa width="600" jadi "100%" agar responsif.
+                                    Kita tambah class 'absolute inset-0' agar iframe memenuhi kotak.
+                                --}}
+                                {!! str_replace(
+                                        ['width="600"', 'height="450"', 'style="border:0;"'], 
+                                        ['width="100%"', 'height="100%"', 'class="absolute inset-0 w-full h-full" style="border:0; filter: grayscale(0%);"'], 
+                                        $edition->location_map
+                                    ) 
+                                !!}
+                            </div>
+
+                            {{-- Overlay "Buka di Google Maps" (Muncul saat hover) --}}
+                            <div class="absolute inset-0 flex items-center justify-center bg-slate-900/0 group-hover:bg-slate-900/10 transition-all duration-300 pointer-events-none">
+                                {{-- Hiasan saja, agar terasa interaktif --}}
+                            </div>
+                        </div>
+
+                        {{-- 3. Footer Kecil --}}
+                        <div class="mt-3 flex justify-end">
+                            <span class="text-xs text-slate-400 flex items-center gap-1">
+                                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                Anda dapat memperbesar/memperkecil peta
+                            </span>
+                        </div>
+
+                    </div>
                 @endif
 
             </div>
@@ -163,8 +218,12 @@
                     </ul>
                 </div>
 
+                
+
             </aside>
 
         </div>
+        
     </div>
+
 </x-layout>

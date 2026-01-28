@@ -52,18 +52,44 @@
                                     <p class="text-slate-500 text-sm line-clamp-3 mb-4 flex-grow leading-relaxed">
                                         {{ Str::limit(strip_tags($post->content), 100) }}
                                     </p>
-                                    
-                                    <div class="mt-auto pt-4 border-t border-slate-50 flex justify-between items-center">
-                                        <div class="flex items-center gap-2">
-                                            <div class="w-6 h-6 rounded-full bg-slate-200 overflow-hidden">
-                                                <img src="https://ui-avatars.com/api/?name={{ urlencode($post->author) }}&background=random" alt="Author">
-                                            </div>
-                                            <span class="text-xs text-slate-500 font-medium">{{ Str::limit($post->author, 10) }}</span>
-                                        </div>
-                                        <a href="{{ route('posts.show', $post->slug) }}" class="text-xs font-bold text-iyes-accent hover:underline">
-                                            Baca →
+
+                                    @php
+                                        $isExternal = !empty($post->external_link);
+                                        $url = $isExternal
+                                            ? $post->external_link
+                                            : route('posts.show', $post->slug);
+                                    @endphp
+
+                                    @if($isExternal)
+                                        {{-- NON ARTIKEL --}}
+                                        <a href="{{ $url }}"
+                                        target="_blank"
+                                        rel="noopener nofollow"
+                                        class="inline-flex items-center gap-2 text-xs font-bold text-iyes-accent hover:underline">
+                                            Kunjungi Media
+                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M13 7h6m0 0v6m0-6L10 20"/>
+                                            </svg>
                                         </a>
-                                    </div>
+                                    @else
+                                        {{-- ARTIKEL --}}
+                                        <div class="flex justify-between items-center">
+                                            <div class="flex items-center gap-2">
+                                                <div class="w-6 h-6 rounded-full bg-slate-200 overflow-hidden">
+                                                    <img src="https://ui-avatars.com/api/?name={{ urlencode($post->author) }}&background=random"
+                                                        alt="Author">
+                                                </div>
+                                                <span class="text-xs text-slate-500 font-medium">
+                                                    {{ Str::limit($post->author, 12) }}
+                                                </span>
+                                            </div>
+
+                                            <a href="{{ $url }}" class="text-xs font-bold text-iyes-accent hover:underline">
+                                                Baca →
+                                            </a>
+                                        </div>
+                                    @endif
                                 </div>
                             </article>
                             @endforeach

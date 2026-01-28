@@ -22,7 +22,7 @@
 
             <div class="hidden md:flex items-center gap-8">
                 
-                <a href="/" class="relative text-sm font-bold text-slate-600 hover:text-iyes-primary transition-colors group">
+                <a href="/" wire:navigate class="relative text-sm font-bold {{ request()->is('/') ? 'text-iyes-accent' : 'text-slate-600 hover:text-iyes-accent' }}">
                     Beranda
                     <span class="absolute -bottom-2 left-0 w-0 h-0.5 bg-iyes-accent transition-all duration-300 group-hover:w-full"></span>
                 </a>
@@ -43,29 +43,29 @@
                                     <i class="fas fa-building text-xs"></i>
                                 </div>
                                 <div>
-                                    <span class="block text-sm font-bold text-slate-700">Profil Organisasi</span>
+                                    <span class="block text-sm font-bold {{ request()->routeIs('pages.about') ? 'text-iyes-accent' : 'text-slate-700' }}">Profil Organisasi</span>
                                     <span class="block text-xs text-slate-400 mt-0.5">Visi, misi & sejarah</span>
                                 </div>
                             </a>
 
                             {{-- 2. Struktur Pengurus --}}
-                            <a href="{{ route('board-members.index') }}" class="flex items-start gap-3 p-3 rounded-lg hover:bg-slate-50 transition-colors group/item">
+                            <a href="{{ route('board-members.index') }}" wire:navigate class="flex items-start gap-3 p-3 rounded-lg hover:bg-slate-50 transition-colors group/item">
                                 <div class="w-8 h-8 rounded-full bg-orange-50 text-iyes-accent flex items-center justify-center group-hover/item:bg-iyes-accent group-hover/item:text-white transition-colors">
                                     <i class="fas fa-users text-xs"></i>
                                 </div>
                                 <div>
-                                    <span class="block text-sm font-bold text-slate-700">Struktur Pengurus</span>
+                                    <span class="block text-sm font-bold {{ request()->routeIs('board-members.index') ? 'text-iyes-accent' : 'text-slate-700' }}">Struktur Pengurus</span>
                                     <span class="block text-xs text-slate-400 mt-0.5">Kenali tim kami</span>
                                 </div>
                             </a>
 
                             {{-- 3. Cerita Alumni (BARU) --}}
-                            <a href="{{ route('pages.testimonials') }}" class="flex items-start gap-3 p-3 rounded-lg hover:bg-slate-50 transition-colors group/item">
+                            <a href="{{ route('pages.testimonials') }}" wire:navigate class="flex items-start gap-3 p-3 rounded-lg hover:bg-slate-50 transition-colors group/item">
                                 <div class="w-8 h-8 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center group-hover/item:bg-emerald-600 group-hover/item:text-white transition-colors">
                                     <i class="fas fa-comment-dots text-xs"></i>
                                 </div>
                                 <div>
-                                    <span class="block text-sm font-bold text-slate-700">Cerita Alumni</span>
+                                    <span class="block text-sm font-bold {{ request()->routeIs('pages.testimonials') ? 'text-iyes-accent' : 'text-slate-700' }}">Cerita Alumni</span>
                                     <span class="block text-xs text-slate-400 mt-0.5">Testimoni & pengalaman</span>
                                 </div>
                             </a>
@@ -85,12 +85,12 @@
                     <div class="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top -translate-y-2 group-hover:translate-y-0 w-64 z-50">
                         <div class="bg-white rounded-xl shadow-xl ring-1 ring-black/5 p-2 overflow-hidden">
 
-                            <a href="{{ route('programs.index') }}" class="flex items-start gap-3 p-3 rounded-lg hover:bg-slate-50 transition-colors group/item">
+                            <a href="{{ route('programs.index') }}" wire:navigate class="flex items-start gap-3 p-3 rounded-lg hover:bg-slate-50 transition-colors group/item">
                                 <div class="w-8 h-8 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center group-hover/item:bg-orange-600 group-hover/item:text-white transition-colors">
                                     <i class="fas fa-layer-group text-xs"></i>
                                 </div>
                                 <div>
-                                    <span class="block text-sm font-bold text-slate-700">Semua Program</span>
+                                    <span class="block text-sm font-bold {{ request()->routeIs('programs.index') ? 'text-iyes-accent' : 'text-slate-700' }}">Semua Program</span>
                                     <span class="block text-xs text-slate-400 mt-0.5">Inisiatif unggulan kami</span>
                                 </div>
                             </a>
@@ -109,22 +109,22 @@
                     <div class="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top -translate-y-2 group-hover:translate-y-0 w-64 z-50">
                         <div class="bg-white rounded-xl shadow-xl ring-1 ring-black/5 p-2 overflow-hidden">
                             
-                            <a href="{{ route('posts.index') }}" class="flex items-start gap-3 p-3 rounded-lg hover:bg-slate-50 transition-colors group/item">
+                            <a href="{{ route('posts.index') }}" wire:navigate class="flex items-start gap-3 p-3 rounded-lg hover:bg-slate-50 transition-colors group/item">
                                 <div class="w-8 h-8 rounded-full bg-green-50 text-green-600 flex items-center justify-center group-hover/item:bg-green-600 group-hover/item:text-white transition-colors">
                                     <i class="fas fa-newspaper text-xs"></i>
                                 </div>
                                 <div>
-                                    <span class="block text-sm font-bold text-slate-700">Berita</span>
+                                    <span class="block text-sm font-bold {{ request()->routeIs('posts.index') ? 'text-iyes-accent' : 'text-slate-700' }}">Berita</span>
                                     <span class="block text-xs text-slate-400 mt-0.5">Update terbaru</span>
                                 </div>
                             </a>
 
-                            <a href="{{ route('annual-report.index') }}" class="flex items-start gap-3 p-3 rounded-lg hover:bg-slate-50 transition-colors group/item">
+                            <a href="{{ route('annual-report.index') }}" wire:navigate class="flex items-start gap-3 p-3 rounded-lg hover:bg-slate-50 transition-colors group/item">
                                 <div class="w-8 h-8 rounded-full bg-purple-50 text-purple-600 flex items-center justify-center group-hover/item:bg-purple-600 group-hover/item:text-white transition-colors">
                                     <i class="fas fa-file-pdf text-xs"></i>
                                 </div>
                                 <div>
-                                    <span class="block text-sm font-bold text-slate-700">Annual Report</span>
+                                    <span class="block text-sm font-bold {{ request()->routeIs('annual-report.index') ? 'text-iyes-accent' : 'text-slate-700' }}">Annual Report</span>
                                     <span class="block text-xs text-slate-400 mt-0.5">Laporan tahunan IYES</span>
                                 </div>
                             </a>
@@ -135,10 +135,10 @@
 
 
                 {{-- Mitra --}}
-                <a href="{{ route('pages.partnership') }}" class="relative text-sm font-bold text-slate-600 hover:text-iyes-primary transition-colors group">
+                <a href="{{ route('pages.partnership') }}" wire:navigate class="relative text-sm font-bold {{ request()->routeIs('pages.partnership') ? 'text-iyes-accent' : 'text-slate-600 hover:text-iyes-accent' }}">
                     Mitra
                     <span class="absolute -bottom-2 left-0 w-0 h-0.5 bg-iyes-accent transition-all duration-300 group-hover:w-full"></span>
-                
+                </a>
 
                 {{-- Kontak --}}
                 <a href="{{ route('pages.contact') }}" wire:navigate class="ml-4 px-6 py-2.5 text-sm font-bold text-white bg-iyes-primary rounded-full hover:bg-slate-800 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 shadow-md shadow-blue-900/20">
@@ -164,11 +164,14 @@
          x-transition:leave="transition ease-in duration-150"
          x-transition:leave-start="opacity-100 translate-y-0"
          x-transition:leave-end="opacity-0 -translate-y-4"
-         x-collapse x-cloak 
+         x-cloak 
          class="md:hidden bg-white border-t border-gray-100 shadow-xl absolute w-full left-0 top-full overflow-hidden">
         
         <div class="px-6 py-6 space-y-4">
-            <a href="/" class="block text-base font-bold text-iyes-accent">Beranda</a>
+            <a href="/"
+                class="block text-base font-bold {{ request()->is('/') ? 'text-iyes-accent' : 'text-slate-600 hover:text-iyes-accent' }}">
+                Beranda
+            </a>
             
             {{-- Tentang Kami --}}
             <div x-data="{ open: false }">
@@ -176,9 +179,10 @@
                     Tentang Kami
                     <svg :class="open ? 'rotate-180' : ''" class="w-4 h-4 transition-transform text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                 </button>
-                <div x-show="open" x-collapse class="mt-2 pl-4 border-l-2 border-gray-100 space-y-3">
-                     <a href="{{ route('board-members.index') }}" class="block text-sm font-medium text-slate-500 hover:text-iyes-accent">Struktur Pengurus</a>
-                     <a href="{{ route('pages.about') }}" class="block text-sm font-medium text-slate-500 hover:text-iyes-accent">Profil Organisasi</a>
+                <div x-show="open" class="mt-2 pl-4 border-l-2 border-gray-100 space-y-3">
+                     <a href="{{ route('board-members.index') }}" class="block text-sm font-medium {{ request()->routeIs('board-members.index') ? 'text-iyes-accent' : 'text-slate-500 hover:text-iyes-accent' }}">Struktur Pengurus</a>
+                     <a href="{{ route('pages.about') }}" class="block text-sm font-medium {{ request()->routeIs('pages.about') ? 'text-iyes-accent' : 'text-slate-500 hover:text-iyes-accent' }}">Profil Organisasi</a>
+                     <a href="{{ route('pages.testimonials') }}" class="block text-sm font-medium {{ request()->routeIs('pages.testimonials') ? 'text-iyes-accent' : 'text-slate-500 hover:text-iyes-accent' }}">Cerita Alumni</a>
                 </div>
             </div>
 
@@ -188,8 +192,8 @@
                     Program
                     <svg :class="open ? 'rotate-180' : ''" class="w-4 h-4 transition-transform text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                 </button>
-                <div x-show="open" x-collapse class="mt-2 pl-4 border-l-2 border-gray-100 space-y-3">
-                     <a href="{{ route('programs.index') }}" class="block text-sm font-medium text-slate-500 hover:text-iyes-accent">Semua Program</a>
+                <div x-show="open" class="mt-2 pl-4 border-l-2 border-gray-100 space-y-3">
+                     <a href="{{ route('programs.index') }}" class="block text-sm font-medium {{ request()->routeIs('programs.index') ? 'text-iyes-accent' : 'text-slate-500 hover:text-iyes-accent' }}">Semua Program</a>
                 </div>
             </div>
 
@@ -199,16 +203,16 @@
                     Media
                     <svg :class="open ? 'rotate-180' : ''" class="w-4 h-4 transition-transform text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                 </button>
-                <div x-show="open" x-collapse class="mt-2 pl-4 border-l-2 border-gray-100 space-y-3">
-                     <a href="{{ route('posts.index') }}" class="block text-sm font-medium text-slate-500 hover:text-iyes-accent">Berita</a>
-                     <a href="{{ route('annual-report.index') }}" class="block text-sm font-medium text-slate-500 hover:text-iyes-accent">Annual Report</a>
+                <div x-show="open" class="mt-2 pl-4 border-l-2 border-gray-100 space-y-3">
+                     <a href="{{ route('posts.index') }}" class="block text-sm font-medium {{ request()->routeIs('posts.index') ? 'text-iyes-accent' : 'text-slate-500 hover:text-iyes-accent' }}">Berita</a>
+                     <a href="{{ route('annual-report.index') }}" class="block text-sm font-medium {{ request()->routeIs('annual-report.index') ? 'text-iyes-accent' : 'text-slate-500 hover:text-iyes-accent' }}">Annual Report</a>
                 </div>
             </div>
 
             {{-- Mitra --}}
-            <a href="{{ route('pages.partnership') }}" class="block text-base font-bold text-iyes-accent">Mitra</a>
+            <a href="{{ route('pages.partnership') }}" class="block text-base font-bold {{ request()->routeIs('pages.partnership') ? 'text-iyes-accent' : 'text-slate-600 hover:text-iyes-accent' }}">Mitra</a>
             
-            
+            {{-- Kontak --}}
             <div class="pt-6 border-t border-gray-100">
                 <a href="{{ route('pages.contact') }}" class="block w-full text-center py-3 bg-iyes-primary text-white font-bold rounded-lg shadow-md">
                     Hubungi Kami

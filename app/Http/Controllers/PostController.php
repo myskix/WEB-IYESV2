@@ -64,6 +64,10 @@ class PostController extends Controller
             ->take(3)
             ->get();
 
+        if ($post->external_link) {
+            return redirect()->away($post->external_link);
+        }
+
         return view('posts.show', compact('post', 'relatedPosts'));
     }
 }
